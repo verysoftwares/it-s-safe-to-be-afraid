@@ -1,7 +1,8 @@
 SW,SH = 960*1.2,600*1.2
-
+title = 'it\'s safe to be afraid.'
+        
 function love.conf(t)
-    t.window.title = 'it\'s safe to be afraid.' -- The window title (string)
+    t.window.title = title              -- The window title (string)
     t.window.icon = nil                 -- Filepath to an image to use as the window's icon (string)
     t.window.width = SW                 -- The window width (number)
     t.window.height = SH                -- The window height (number)

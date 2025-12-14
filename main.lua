@@ -8,7 +8,7 @@ t = 0
 
 function love.update()
     if t==0 then
-        --asset.wav['scream']:play()
+        asset.wav['scream']:play()
         asset.wav['title']:play()
     end
 
@@ -57,6 +57,32 @@ function love.draw()
             -- why does this give me black??
                 --lg.setColor(bgc.r,bgc.g,bgc.b)
                 --lg.rectangle('fill',0+120*1.5,0+120*1.5,SW-120*1.5*2,SH-120*1.5*2)
+        lg.setFont(asset.font['1'])
+        local fw = lg.getFont():getWidth(title) -- font width
+        lg.setColor(0.74+0.08+sin(t*0.02)*0.22,0.74+0.05,0.74+0.1*3)
+        lg.print(title,SW/2-fw/2,63+23)
+        --lg.setColor(0.44+0.08+sin(t*0.023)*0.22,0.44+0.05,0.44+0.1*5)
+        --lg.print(title,SW/2-fw/2,63+23+23-9)
+        lg.setColor(0.44+0.08+sin(t*0.024)*0.22,0.44+0.05,0.44+0.1)
+        lg.print(title,SW/2-fw/2,63+23+23+23)
+
+        local msg = '[      PLAY      ]'
+        lg.setFont(asset.font['2-1'])
+        lg.setColor(0.74+0.08+sin(t*0.02)*0.22,0.74+0.05,0.74+0.1*3)
+        local fw = lg.getFont():getWidth(msg)
+        lg.print(msg,SW/2-fw/2,SH/2)
+
+        local msg = 'GAME'
+        lg.setFont(asset.font['2-2'])
+        local fw = lg.getFont():getWidth(msg)
+        lg.print(msg,SW/2-fw/2,SH/2+144)
+        local msg = 'SET'
+        local fw = lg.getFont():getWidth(msg)
+        lg.print(msg,SW/2-fw/2,SH/2+144+52)
+        local msg = 'NO.'
+        local fw = lg.getFont():getWidth(msg)
+        lg.print(msg,SW/2-fw/2,SH/2+144+52+52)
+
     lg.setCanvas()
         lg.draw(asset.draw['maincanvas'])
 end
