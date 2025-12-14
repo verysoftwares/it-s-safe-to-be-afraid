@@ -8,9 +8,9 @@ t = 0
 
 function love.update()
     if t==0 then
-        asset.wav['scream']:play()
+        if not SKIP then asset.wav['scream']:play() end
         asset.wav['title']:play()
-    end
+    end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 
     t = t+1
 end
@@ -35,11 +35,13 @@ function love.draw()
                     local ro = 0 -- rectangle size offset
                     local rs = SW/10+8 -- rectangle side offset
                     local cx,cy = rs-8+(i-1)*SW/5-ro,rs-8-ro+14
+                    local rb = 0 -- rectangle bounce
+                    if j==3 then rb = SW/10 end
                     --love.graphics.rectangle('fill',cx,cy,SW/10+24*2,SW/10+24*2)
-                    love.graphics.polygon('fill',cx-(SW/10+ro*2),cy+(j-1)*(SW/5),
-                                                 cx,cy-(SW/10+ro*2)+(j-1)*(SW/5),
-                                                 cx+(SW/10+ro*2),cy+(j-1)*(SW/5),
-                                                 cx,cy+(SW/10+ro*2)+(j-1)*(SW/5))
+                    love.graphics.polygon('fill',cx-(SW/10+ro*2),cy+(j-1)*(SW/5)+rb,
+                                                 cx,cy-(SW/10+ro*2)+(j-1)*(SW/5)+rb,
+                                                 cx+(SW/10+ro*2),cy+(j-1)*(SW/5)+rb,
+                                                 cx,cy+(SW/10+ro*2)+(j-1)*(SW/5)+rb)
                 end end
             -- even Einstein would struggle with
             -- coordinate systems within coordinate systems

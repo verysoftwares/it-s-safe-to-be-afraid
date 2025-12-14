@@ -1,5 +1,6 @@
 SW,SH = 960*1.2,600*1.2
 title = 'it\'s safe to be afraid.'
+SKIP = false
         
 function love.conf(t)
     t.window.title = title              -- The window title (string)
