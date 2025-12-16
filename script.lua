@@ -126,6 +126,6 @@ end
 -- a reusable script for returning to what was interrupted.
 -- fun might ensue since this has a variable speaker
 scr_anyway = {
-    function() chat('Anyway.......',diagbox.speaker,'anyway') end,
+    function() chat('anyway.......',diagbox.speaker,'anyway') end,
     function() script_start(script.anyway) end,
 }

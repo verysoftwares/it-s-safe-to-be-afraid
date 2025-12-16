@@ -1,6 +1,6 @@
 function assetload()
     aliisa = {}
-    imgsrc(aliisa,'aliisa-LV1.png')
+    imgsrc(aliisa,'aliisa-LV2.png')
     fontsrc(aliisa,'HelloCatround.ttf')
     aliisa.id = 'Aliisa'
     aliisa.col = {r=0.9-0.15,g=0.4-0.15,b=0.5-0.15}

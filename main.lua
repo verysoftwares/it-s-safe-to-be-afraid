@@ -110,7 +110,7 @@ scene_launch('camp') -- showtime.
 function love.draw()
     lg.setCanvas(asset.draw['maincanvas'])
         if not bg_img then bg(0.8-0.6,0.8-0.6,0.8-0.6,1.0)
-        else fg(1,1,1,1); lg.draw(bg_img,-120,-240,0,0.25) end
+        else fg(1,1,1,1); lg.draw(bg_img,-240,-240,0,0.25) end
 
         dialoguedraw()
 

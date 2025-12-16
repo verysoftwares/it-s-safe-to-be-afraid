@@ -1,4 +1,5 @@
 scr_incamp = {
+    function() waitclick() end,
     function() appear(aliisa) end,
     --function() chat('All the cakes are at home!') end,
     function() chat('woah i can see myself on screen') end,

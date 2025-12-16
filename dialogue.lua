@@ -13,7 +13,7 @@ function dialoguedraw()
             lg.setFont(obj.font)
             lg.setScissor(200,0,name_w,SH)
             lg.print(obj.id,
-                     200+40+40+40,SH-200-40-70+60/2-obj.font:getHeight()/2)
+                     200+40+40+40,SH-200-40-70+60/2+4-obj.font:getHeight()/2)
             lg.setScissor()
 
     local line_w = 800*diagbox.w1
