@@ -1,6 +1,6 @@
 SW,SH = 960*1.2,600*1.2
 title = 'it\'s safe to be afraid.'
-SKIP = false
+SKIP = true
         
 function love.conf(t)
     t.window.title = title              -- The window title (string)
@@ -8,7 +8,7 @@ function love.conf(t)
     t.window.width = SW                 -- The window width (number)
     t.window.height = SH                -- The window height (number)
 
-    t.console = false                   -- Attach a console (boolean, Windows only)
+    t.console = true                    -- Attach a console (boolean, Windows only)
 
     t.identity = nil                    -- The name of the save directory (string)
     t.appendidentity = false            -- Search files in source directory before save directory (boolean)

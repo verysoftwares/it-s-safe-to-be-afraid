@@ -1,8 +1,22 @@
 -- alias
     lg = love.graphics
     sin = math.sin; cos = math.cos; pi = math.pi
+    bg = lg.clear; fg = lg.setColor
+    rand = love.math.random
 
 require 'load'
+
+require 'asset' -- loads global entities and data.
+require 'script' -- tools for progressing dialogue.
+require 'dialogue' -- tools for showing dialogue.
+require 'sprite' -- tools for clickable entities.
+require 'state' -- love.update functions.
+require 'misc' -- leftover functions.
+
+require '/asset/text/script-00'
+
+require 'scene' -- general scene transition functions.
+require 'scene-camp' -- kämppä
 
 t = 0
 
@@ -68,23 +82,57 @@ function love.draw()
         lg.setColor(0.44+0.08+sin(t*0.024)*0.22,0.44+0.05,0.44+0.1)
         lg.print(title,SW/2-fw/2,63+23+23+23)
 
+        local yo = -45-2 -- ylioppilas which translates to yläoikea which translates to y offset
         local msg = '[      PLAY      ]'
         lg.setFont(asset.font['2-1'])
         lg.setColor(0.74+0.08+sin(t*0.02)*0.22,0.74+0.05,0.74+0.1*3)
         local fw = lg.getFont():getWidth(msg)
-        lg.print(msg,SW/2-fw/2,SH/2)
+        lg.print(msg,SW/2-fw/2,SH/2+yo)
 
+        local yo2 = -14 -- ylioppilas II: electric boogaloo
         local msg = 'GAME'
         lg.setFont(asset.font['2-2'])
         local fw = lg.getFont():getWidth(msg)
-        lg.print(msg,SW/2-fw/2,SH/2+144)
+        lg.print(msg,SW/2-fw/2,SH/2+144+yo+yo2)
         local msg = 'SET'
         local fw = lg.getFont():getWidth(msg)
-        lg.print(msg,SW/2-fw/2,SH/2+144+52)
+        lg.print(msg,SW/2-fw/2,SH/2+144+52+yo+yo2)
         local msg = 'NO.'
         local fw = lg.getFont():getWidth(msg)
-        lg.print(msg,SW/2-fw/2,SH/2+144+52+52)
+        lg.print(msg,SW/2-fw/2,SH/2+144+52+52+yo+yo2)
 
     lg.setCanvas()
         lg.draw(asset.draw['maincanvas'])
+end
+
+scene_launch('camp') -- showtime.
+
+function love.draw()
+    lg.setCanvas(asset.draw['maincanvas'])
+        if not bg_img then bg(0.8-0.6,0.8-0.6,0.8-0.6,1.0)
+        else fg(1,1,1,1); lg.draw(bg_img,-120,-240,0,0.25) end
+
+        dialoguedraw()
+
+        fg(1,1,1,1)
+            inventorydraw()
+
+            for i,obj in ipairs(scene) do
+                spritedraw(obj)
+            end
+            for i=#scene,1,-1 do
+                local obj = scene[i]
+                if spritehover(obj) then fg(0.4,1,0.4,1); spritedraw(obj); break end
+            end
+
+            --if #inventory>0 then
+                --lg.setFont(touko.font)
+                    --fg(0.4-0.15,0.8-0.15,0.5-0.15)
+                    --local msg = string.format('< %d/%d >',#inventory,inventory.max)
+                    --lg.print(msg,touko.x+touko.img:getWidth()/4-lg.getFont():getWidth(msg)/2,touko.y-20)
+            --end
+
+    lg.setCanvas()
+        fg(1,1,1,1)
+        lg.draw(asset.draw['maincanvas'],0,0)
 end
