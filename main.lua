@@ -36,6 +36,19 @@ asset.draw.color['BG'] = {r=0.33,g=0.25,b=0.4}
 --asset.draw.color['FG'] = {r=0.25*3,g=0.4,b=0.33*2}
 asset.draw.color['FG'] = {r=0.64,g=0.64,b=0.64}
 
+function love.keypressed(key)
+    if key=='escape' then
+        love.event.quit(0)
+    end
+    if key=='f11' then
+        local fw,fh,fflags = love.window.getMode()
+        if fflags.fullscreen then
+             love.window.setMode(SW,SH,{fullscreen=false})
+        else love.window.setMode(0, 0, {fullscreen=true}) 
+        end
+    end
+end
+
 function love.draw()
     lg.setCanvas(asset.draw['maincanvas'])
         local bgc = asset.draw.color['BG']
@@ -134,5 +147,17 @@ function love.draw()
 
     lg.setCanvas()
         fg(1,1,1,1)
-        lg.draw(asset.draw['maincanvas'],0,0)
+        local fw,fh,fflags = love.window.getMode()
+        if not fflags.fullscreen then
+            lg.draw(asset.draw['maincanvas'],0,0)
+        else 
+            local sc1 = fw/SW
+            local sc2 = fh/SH
+            local scf = math.min(sc1,sc2)
+            local sox = (fw/2-SW/2)/4
+            local soy = (fh/2-SH/2)/4
+            if sc1>sc2 then lg.draw(asset.draw['maincanvas'],sox,0,  0,scf,scf)
+            else            lg.draw(asset.draw['maincanvas'],0,  soy,0,scf,scf)
+            end
+        end
 end
