@@ -44,7 +44,7 @@ function dialoguedraw()
         fg(bg_col.r,bg_col.g,bg_col.b,1)
             lg.setFont(obj.fontsmol)
             lg.print('Click to advance.',
-                     680+40/2,SH-50-10+40/2-obj.fontsmol:getHeight()/2)
+                     680+40/2,SH-50-10+40/2+3-obj.fontsmol:getHeight()/2)
     end
 end
 
@@ -53,15 +53,20 @@ function lineprint(sx,sy)
     local lx,ly = sx,sy
     for i=1,math.min(line.i,#line.cur) do
         local char = string.sub(line.cur,i,i)
-        if i==line.i and not (char==' ') then 
-            if not (love.update==vaniSH) then randchar = string.char(rand(33,126)) end
+        if i==line.i and not (char==' ') and not (char=='\n') then 
+            if not (love.update==vanish) then randchar = string.char(rand(33,126)) end
             char = randchar
         end
-        lg.print(char,lx,ly+sin(i*0.82+t*0.12)*2)
-        lx = lx+lg.getFont():getWidth(char)
-        if char==' ' and not lineroom(lx-sx,string.sub(line.cur,i+1,#line.cur)) then
+        if char == '\n' then
             ly = ly+lg.getFont():getHeight()
             lx = sx
+        else
+            lg.print(char,lx,ly+sin(i*0.82+t*0.12)*2)
+            lx = lx+lg.getFont():getWidth(char)
+            if char==' ' and not lineroom(lx-sx,string.sub(line.cur,i+1,#line.cur)) then
+                ly = ly+lg.getFont():getHeight()
+                lx = sx
+            end
         end
     end
 end

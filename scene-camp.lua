@@ -2,8 +2,13 @@ scr_incamp = {
     function() waitclick() end,
     function() appear(aliisa) end,
     --function() chat('All the cakes are at home!') end,
-    function() chat('woah i can see myself on screen') end,
-    function() chat('that\'s so rad!') end,
+    function() chat('woah i can see myself on screen',aliisa) end,
+    function() chat('that\'s so rad!',aliisa) end,
+    function() appear(aliisa1) end,
+    function() chat('screen? mikA vitun screen.',aliisa1) end,
+    function() chat('this is Section\n87 ettAs tiiAt.',aliisa1) end,
+    function() chat('..',aliisa) end,
+    function() chat('...',aliisa1) end,
     function() if #inventory==inventory.max then script_start(scr_cafefull) else script_next() end end,
 }
 
@@ -33,11 +38,14 @@ end
 function camp_reset()
     --bg_img = cafe_bg
 
-    scene = {aliisa}
+    scene = {aliisa,aliisa1}
 
     aliisa.x,aliisa.y = 0,SH-aliisa.img:getHeight()/2
     aliisa.x = aliisa.x-aliisa.img:getWidth()/2-20
 
+    aliisa1.x,aliisa1.y = SW,SH-aliisa1.img:getHeight()/2
+    --aliisa1.x = aliisa1.x-aliisa1.img:getWidth()/2-20
+ 
     script_collect = camp_collect
     script_use = camp_use
 
