@@ -61,6 +61,10 @@ function lineprint(sx,sy)
             ly = ly+lg.getFont():getHeight()
             lx = sx
         else
+            local lrd,lgr,lbl,la = lg.getColor()
+            fg(lrd-0.33,lgr-0.333,lbl-0.3333,la)
+            lg.print(char,lx,8+ly+sin(i*0.82+t*0.12)*2)
+            fg(lrd,lgr,lbl,la)
             lg.print(char,lx,ly+sin(i*0.82+t*0.12)*2)
             lx = lx+lg.getFont():getWidth(char)
             if char==' ' and not lineroom(lx-sx,string.sub(line.cur,i+1,#line.cur)) then
