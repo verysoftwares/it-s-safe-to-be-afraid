@@ -15,8 +15,9 @@ require 'misc' -- leftover functions.
 
 require '/asset/text/script-00'
 
-require 'scene' -- general scene transition functions.
-require 'scene-camp' -- kämppä
+require 'scene'         -- general scene transition functions.
+require 'scene-camp'    -- kämppä
+require 'scene-eristys' -- no mitApA lottoat
 
 t = 0
 
@@ -118,7 +119,8 @@ function love.draw()
         lg.draw(asset.draw['maincanvas'])
 end
 
-scene_launch('camp') -- showtime.
+--scene_launch('camp')    -- showtime.
+scene_launch('eristys') -- expecting a show?
 
 function love.draw()
     lg.setCanvas(asset.draw['maincanvas'])

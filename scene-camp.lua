@@ -3,7 +3,7 @@ scr_incamp = {
     function() appear(aliisa) end,
     --function() chat('All the cakes are at home!') end,
     function() chat('woah i can see myself on screen',aliisa) end,
-    function() chat('that\'s so rad!',aliisa) end,
+    function() chat('that\'s pretty rad!',aliisa) end,
     function() appear(aliisa1) end,
     function() chat('screen? mikA vitun screen.',aliisa1) end,
     function() chat('this is Section\n87 ettAs tiiAt.',aliisa1) end,

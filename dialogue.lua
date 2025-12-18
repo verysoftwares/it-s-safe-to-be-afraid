@@ -59,6 +59,7 @@ function lineprint(sx,sy)
         end
         if char == '\n' then
             ly = ly+lg.getFont():getHeight()
+            if ly>SH then ly=ly-SH end
             lx = sx
         else
             local lrd,lgr,lbl,la = lg.getColor()
@@ -69,6 +70,7 @@ function lineprint(sx,sy)
             lx = lx+lg.getFont():getWidth(char)
             if char==' ' and not lineroom(lx-sx,string.sub(line.cur,i+1,#line.cur)) then
                 ly = ly+lg.getFont():getHeight()
+                if ly>SH then ly=ly-SH end
                 lx = sx
             end
         end

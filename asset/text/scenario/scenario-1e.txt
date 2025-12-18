@@ -1,0 +1,9 @@
+scr_incamp = {
+    function() waitclick() end,
+    function() appear(aliisa) end,
+    function() chat('All the cakes are at home!',aliisa) end,
+}
+
+-- eristysselli scenario.
+-- go as deep as you can.
+-- from yours truly 2 you
