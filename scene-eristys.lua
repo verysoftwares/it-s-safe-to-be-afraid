@@ -1,3 +1,5 @@
+-- chapter 3
+
 scr_intoeristys = {
     function() waitclick() end,
     function() appear(aliisa) end,
@@ -23,6 +25,12 @@ scr_intoeristys = {
     function() chat('this \'dream\' sponsored by Dr. Pepper!1') end, 
     function() chat('authentic blend of 23 flavours!') end, 
     function() chat('or flavors if you\'re american.') end,
+
+    --function() chat('angy aphorism time!',aliisa) end,
+
+        --function() chat('aa well, sorry for not being able',aliisa1) end,
+        --function() chat('sorry for not being able,',aliisa1) end,
+        --function() chat('to afford a 1000€ sound system.',aliisa1) end,
 }
 
 function eristys_collect(obj)
@@ -60,7 +68,7 @@ function eristys_reset()
     script_collect = eristys_collect
     script_use = eristys_use
 
-    bg_img = lg.newImage('/asset/visual/photo/section 87.jpg')
+    bg_img = lg.newImage('/asset/visual/photo/er1stys.jpg')
 
     script_start(scr_intoeristys)
 end

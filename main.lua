@@ -16,8 +16,10 @@ require 'misc' -- leftover functions.
 require '/asset/text/script-00'
 
 require 'scene'         -- general scene transition functions.
-require 'scene-camp'    -- kämppä
-require 'scene-eristys' -- no mitApA lottoat
+require 'scene-camp'        -- kämppä '87
+require 'scene-pohjustus' -- hyvA alku
+require 'scene-eristys'   -- no mitApA lottoat
+require 'scene-cliffa'    -- Omega Leftfield
 
 t = 0
 

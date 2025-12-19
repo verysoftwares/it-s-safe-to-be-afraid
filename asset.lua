@@ -10,6 +10,8 @@ function assetload()
     fontsrc(aliisa1,'HelloCatround.ttf')
     aliisa1.id = 'aliisa'
     aliisa1.col = {r=0.9-0.15,g=0.4-0.15,b=0.5-0.15}
+
+    sounds = {}
 end
 
 function imgsrc(obj,src)
