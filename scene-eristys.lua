@@ -1,5 +1,7 @@
 -- chapter 3
 
+local fin = chat
+
 scr_intoeristys = {
     function() waitclick() end,
     function() appear(aliisa) end,
@@ -31,6 +33,9 @@ scr_intoeristys = {
         --function() chat('aa well, sorry for not being able',aliisa1) end,
         --function() chat('sorry for not being able,',aliisa1) end,
         --function() chat('to afford a 1000€ sound system.',aliisa1) end,
+
+    --fin'pronoun theatre dismantled'
+    function() fin('pronoun theatre dismantled.') end,
 }
 
 function eristys_collect(obj)
